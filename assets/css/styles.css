@@ -293,7 +293,7 @@ img{
 }
 
 .home__img img{
-  width: 400px;
+  width: 350px;
 }
 
 .home__social{
@@ -625,6 +625,10 @@ img{
   border: none;
 }
 
+.contact__description{
+  text-align: left;
+}
+
 /*===== FOOTER =====*/
 .footer{
   background-color: var(--first-color-dark);
@@ -669,7 +673,7 @@ img{
 /*===== MEDIA QUERIES =====*/
 @media screen and (min-width: 576px){
   .home__img img{
-    width: 500px;
+    width: 450px;
   }
 
   .about__container,
@@ -731,7 +735,7 @@ img{
     margin-bottom: 0;
   }
   .home__img img{
-    width: 600px; 
+    width: 550px; 
   }
 
   .about__description{
@@ -780,7 +784,7 @@ img{
   }
 
   .home__img img{
-    width: 700px; 
+    width: 650px; 
   }
 
 }
@@ -796,6 +800,8 @@ img{
   }
 
   .home__img img{
-    width: 800px; 
+    width: 850px; 
   }
-} 
+
+
+}

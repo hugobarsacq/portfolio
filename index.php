@@ -414,10 +414,10 @@
                     {
 	                    if(!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['message']))
 	                    {
-		                    $header="MIME-Version: 1.0\r\n";
-		                    $header.='From:"VOTRE NOM"<email-expediteur@example.org>'."\n";
-		                    $header.='Content-Type:text/html; charset="uft-8"'."\n";
-		                    $header.='Content-Transfer-Encoding: 8bit'; 
+		$header="MIME-Version: 1.0\r\n";
+		$header.='From:"VOTRE NOM"<email-expediteur@example.org>'."\n";
+		$header.='Content-Type:text/html; charset="uft-8"'."\n";
+		$header.='Content-Transfer-Encoding: 8bit';
 
 		$message='
 		<html>
@@ -441,21 +441,34 @@
 	}
 }
 ?>
-                    <form action="" class="contact__form">
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>		
+        <form action="" class="contact__form">
                         <div class="contact__inputs">
-                            <input type="text" placeHolder="Nom" class="contact__input"> 
-                            <input type="email" required="required" placeHolder="E-Mail" class="contact__input"> 
+                            <input type="text" placeHolder="Nom" name="nom" class="contact__input" value="<?php if(isset($_POST['nom'])) { echo $_POST['nom']; } ?>"> 
+                            <input type="email" required="required" name="mail" placeHolder="E-Mail" class="contact__input" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>"> 
                         </div>
 
                         <div class="contact__inputs">
-                            <input type="text" placeHolder="Sujet" class="contact__input"> 
-                            <input type="number" placeHolder="Téléphone" class="contact__input"> 
+                            <input type="text" placeHolder="Sujet" name="sujet" class="contact__input" value="<?php if(isset($_POST['sujet'])) { echo $_POST['sujet']; } ?>"> 
+                            <input type="number" placeHolder="Téléphone" name="telephone" class="contact__input" value="<?php if(isset($_POST['telephone'])) { echo $_POST['telephone']; } ?>"> 
                         </div>
 
-                        <textarea required="required" name="" id="" cols="0" rows="7"  placeholder="Message" class="contact__input"></textarea>
+                        <textarea required="required" name="message" id="" cols="0" rows="7"  placeholder="Message" class="contact__input"><?php if(isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
 
-                        <input type="submit" value="Envoyer" class="button contact__button">
+                        <input type="submit" value="Envoyer" class="button contact__button" name="mailform">
                     </form>
+		<?php
+		if(isset($msg))
+		{
+			echo $msg;
+		}
+		?>
+	</body>
+</html>
                 </div>
             </section>  
         </main>
