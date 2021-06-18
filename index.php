@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -374,7 +375,7 @@
                 </div>
             </section> -->   
 
-            <!--===== CONTACTME =====-->
+            <!--===== CONTACTME =====-->          
             <section class="contact section bd-container" id="contact">
                 <span class="section-subtitle">Pour des projets</span>
                 <h2 class="section-title">Me contacter</h2>
@@ -407,70 +408,24 @@
                                 <a href="https://www.messenger.com/t/hugobarsacq" class="contact__social"><i class='bx bxl-messenger'></i></a>
                             </div>
                         </div>
-                    </div>
-
-                    <?php
-                    if(isset($_POST['mailform']))
-                    {
-	                    if(!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['message']))
-	                    {
-		$header="MIME-Version: 1.0\r\n";
-		$header.='From:"VOTRE NOM"<email-expediteur@example.org>'."\n";
-		$header.='Content-Type:text/html; charset="uft-8"'."\n";
-		$header.='Content-Transfer-Encoding: 8bit';
-
-		$message='
-		<html>
-			<body>
-				<div align="center">
-					<u>Nom de l\'expéditeur :</u>'.$_POST['nom'].'<br />
-					<u>Mail de l\'expéditeur :</u>'.$_POST['mail'].'<br />
-					<br />
-					'.nl2br($_POST['message']).'
-				</div>
-			</body>
-		</html>
-		';
-
-		mail("email-destinataire@example.org", "CONTACT - Monsite.com", $message, $header);
-		$msg="Votre message a bien été envoyé !";
-	}
-	else
-	{
-		$msg="Tous les champs doivent être complétés !";
-	}
-}
-?>
-<html>
-	<head>
-		<meta charset="utf-8" />
-	</head>
-	<body>		
-        <form action="" class="contact__form">
+                    </div>                    	
+                    <form action="" class="contact__form">
                         <div class="contact__inputs">
-                            <input type="text" placeHolder="Nom" name="nom" class="contact__input" value="<?php if(isset($_POST['nom'])) { echo $_POST['nom']; } ?>"> 
-                            <input type="email" required="required" name="mail" placeHolder="E-Mail" class="contact__input" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>"> 
+                            <input type="text" placeHolder="Nom"  class="contact__input" > 
+                            <input type="email" placeHolder="E-Mail" class="contact__input"  > 
                         </div>
 
                         <div class="contact__inputs">
-                            <input type="text" placeHolder="Sujet" name="sujet" class="contact__input" value="<?php if(isset($_POST['sujet'])) { echo $_POST['sujet']; } ?>"> 
-                            <input type="number" placeHolder="Téléphone" name="telephone" class="contact__input" value="<?php if(isset($_POST['telephone'])) { echo $_POST['telephone']; } ?>"> 
+                            <input type="text" placeHolder="Sujet" class="contact__input"  > 
+                            <input type="number" placeHolder="Téléphone" class="contact__input" > 
                         </div>
 
-                        <textarea required="required" name="message" id="" cols="0" rows="7"  placeholder="Message" class="contact__input"><?php if(isset($_POST['message'])) { echo $_POST['message']; } ?></textarea>
+                        <textarea name="" id="" cols="0" rows="7"  placeholder="Message" class="contact__input" ></textarea>
 
-                        <input type="submit" value="Envoyer" class="button contact__button" name="mailform">
-                    </form>
-		<?php
-		if(isset($msg))
-		{
-			echo $msg;
-		}
-		?>
-	</body>
-</html>
+                        <input type="submit" value="Envoyer" class="button contact__button">
+                    </form>       
                 </div>
-            </section>  
+            </section>
         </main>
 
         <!--===== FOOTER =====-->
